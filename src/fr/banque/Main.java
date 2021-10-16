@@ -31,7 +31,9 @@ public class Main {
         System.out.println(n1.getCompteClient());
 
         CompteRemunere compteRemunere = new CompteRemunere();
-
         compteRemunere.calculerInterets(compte1);
+
+        CompteASeuil compteASeuil = new CompteASeuil(252525,300,200);
+        compteASeuil.retirer(100);
     }
 }
