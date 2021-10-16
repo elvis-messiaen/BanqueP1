@@ -7,7 +7,9 @@ public class Compte {
     public Compte() {
 
     }
-
+    public Compte (int numero){
+        this.numero=numero;
+    }
     public Compte(int numero, double solde) {
         this.numero = numero;
         this.solde = solde;
