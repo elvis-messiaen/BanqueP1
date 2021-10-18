@@ -35,5 +35,4 @@ public class CompteRemunere extends Compte implements ICompteRemunere {
         this.taux = taux;
     }
 
-
 }

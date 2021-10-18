@@ -22,6 +22,7 @@ public class CompteASeuil extends Compte implements ICompteASeuil {
      */
     // solde - seuil uneValeur
     // solde - seuil + uneValeur > 0
+    @Override
     public void retirer(double uneValeur) {
         if (this.getSolde() - (this.seuil + uneValeur) >= 0) {
             this.setSolde(this.getSolde() - uneValeur);
@@ -31,15 +32,16 @@ public class CompteASeuil extends Compte implements ICompteASeuil {
         }
     }
 
-
+    @Override
     public double getSeuil() {
-        this.seuil = 200;
         return seuil;
     }
 
-    public void setSeuil(double seuil) {
+    @Override
+    public void setSeuil(double unSeuil) {
         this.seuil = seuil;
     }
+
 
     @Override
     public String toString() {

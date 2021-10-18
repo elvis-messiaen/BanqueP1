@@ -30,12 +30,16 @@ public class Main {
 
         System.out.println(n1.getCompteClient());
 
-        CompteRemunere compteRemunere = new CompteRemunere(11111,100,1.3);
+/*        CompteRemunere compteRemunere = new CompteRemunere(11111,100,1.3);
         compteRemunere.calculerInterets();
         compteRemunere.verserInterets();
 
 
         CompteASeuil compteASeuil = new CompteASeuil(252525,300,200);
-        compteASeuil.retirer(100);
+        compteASeuil.retirer(100);*/
+
+        CompteASeuilRemunere compteASeuilRemunere = new CompteASeuilRemunere(123456,100,1.2);
+        compteASeuilRemunere.calculerInterets();
+        compteASeuilRemunere.verserInterets();
     }
 }
