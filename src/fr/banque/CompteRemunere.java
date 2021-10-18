@@ -1,45 +1,39 @@
 package fr.banque;
 
-public class CompteRemunere extends Compte {
+public class CompteRemunere extends Compte implements ICompteRemunere {
     private double taux;
 
     public CompteRemunere() {
+        super();
     }
 
-    public CompteRemunere(Compte compte) {
-
-    }
-
-    public CompteRemunere(double taux) {
+    public CompteRemunere(int numero, double solde, double taux) {
+        super(numero, solde);
         this.taux = taux;
     }
 
-    // calcule les intérêts du compte (taux*solde)
-    public double calculerInterets(Compte compte) {
-       // taux avec 2 nombres apres la virgule avex un taux random entre 0 et 1
-        this.setSolde((double) Math.round((compte.getSolde() * this.getTaux()) * 100) / 100);
-        System.out.println(this.getTaux()+ " taux effectif");
-        System.out.println(this.getSolde() + " solde");
-        return this.getSolde();
+    @Override
+    public double calculerInterets() {
+        double soldeAvantInteret = this.getSolde();
+        this.setSolde((double) Math.round((this.getSolde() * this.getTaux()) * 100) / 100);
+        double totalAvecinteret = this.getSolde();
+        double interet = totalAvecinteret - soldeAvantInteret;
+        return interet;
     }
 
-    //méthode de définition de taux variable entre 0 et 1
+    public void verserInterets() {
+        System.out.println("Le total de votre compte avec les intêret est de : " + this.getSolde() + "€");
+    }
+
+    @Override
     public double getTaux() {
-        this.setTaux(1.20);
-        taux = (double) Math.round(taux * 100) / 100;
         return taux;
     }
 
-    //méthode de définition de taux variable entre 0 et 1
-/*    public double getTaux() {
-        double Min = 0;
-        double Max = 1;
-        taux = Min + (Math.random() * ((Max - Min) + 1));
-        taux = (double) Math.round(taux * 100) / 100;
-        return taux;
-    }*/
-
-    public void setTaux(double taux) {
+    @Override
+    public void setTaux(double unTaux) {
         this.taux = taux;
     }
+
+
 }
